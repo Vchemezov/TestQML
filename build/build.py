@@ -72,7 +72,6 @@ def create_linux_tarball():
     shutil.move(tarball_name, os.path.join(DEPLOY_DIR, tarball_name))
 
 def main():
-    os.chdir('..')
     # Detect the operating system
     system = platform.system()
     
