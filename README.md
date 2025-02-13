@@ -1,0 +1,2 @@
+# TestQML
+test for Synecta
