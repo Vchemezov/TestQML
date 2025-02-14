@@ -2,7 +2,7 @@
 Name "${Name}"
 Outfile "${Name}_installer.exe"
 RequestExecutionLevel admin ;Require admin rights on NT6+ (When UAC is turned on)
-InstallDir "$ProgramFiles\${Name}"
+InstallDir "$ProgramFiles64\${Name}"
 
 !include LogicLib.nsh
 !include MUI.nsh
@@ -34,9 +34,11 @@ WriteUninstaller "$INSTDIR\Uninstall.exe"
 ;WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Test."   "UninstallString" "$INSTDIR\Uninstall.exe"
 File "TestQML.exe"
 CreateDirectory "$INSTDIR\qml"
+SetOutPath "$INSTDIR\qml"
 File "qml\OpenFileDialog.qml"
 File "qml\mainWindow.qml"
 CreateDirectory "$INSTDIR\test_data"
+SetOutPath "$INSTDIR\test_data"
 File /r "test_data\*.*"
 
 CreateShortCut "$SMPROGRAMS\${Name}.lnk" "$INSTDIR\${Name}.exe"
@@ -47,7 +49,7 @@ Delete "$SMPROGRAMS\${Name}.lnk"
 ;DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Test."
 Delete "$INSTDIR\TestQML.exe"
 Delete "$INSTDIR\qml\*.*"
-Delete "$INSTDIR\tets_data\*.*"
+Delete "$INSTDIR\test_data\*.*"
 RMDir "$INSTDIR\qml"
 RMDir "$INSTDIR\test_data"
 Delete "$INSTDIR\Uninstall.exe"

@@ -24,7 +24,7 @@ This document provides step-by-step instructions for setting up the development 
 
 ### 2. **CMake**
    - **Windows**:
-     1. Download the latest version of CMake from [cmake.org](https://cmake.org/download/).
+     1. Download the CMake 3.15 or later from [cmake.org](https://cmake.org/download/).
      2. Install CMake and ensure you select the option to **Add CMake to the system PATH**.
      3. Verify the installation by running:
         ```bash

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.15 FATAL_ERROR)
 project(TestQML)
 
 find_package(Qt5Core REQUIRED)
@@ -49,20 +49,17 @@ file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/qml
 
 add_executable(${PROJECT_NAME} ${ALL_SRCS} ${MOC_HEADERS})
 
-if(UNIX)
-  if(CMAKE_SYSTEM_NAME MATCHES "Linux")
-    if(CMAKE_COMPILER_IS_GNUCXX OR CLANG)
-       get_target_property(QtCorePath Qt5::Core LOCATION)
-       get_filename_component(QtCoreLocation ${QtCorePath} PATH)
-       set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "-rpath-link=${QtCoreLocation}")
-    endif()
-  endif()
-endif()
+#if(UNIX)
+#  if(CMAKE_SYSTEM_NAME MATCHES "Linux")
+#    if(CMAKE_COMPILER_IS_GNUCXX OR CLANG)
+#       get_target_property(QtCorePath Qt5::Core LOCATION)
+#       get_filename_component(QtCoreLocation ${QtCorePath} PATH)
+#       set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "-rpath-link=${QtCoreLocation}")
+#    endif()
+#  endif()
+#endif()
 
 set(COMMON_LIBS Qt5::Core Qt5::Qml Qt5::Quick Qt5::Widgets)
-
-
-
 if(WIN32)
     target_link_libraries(${PROJECT_NAME} ${COMMON_LIBS} Qt5::WinMain)
     set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "/SUBSYSTEM:WINDOWS" AUTOMOC ON)

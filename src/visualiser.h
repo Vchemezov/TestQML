@@ -1,5 +1,5 @@
-#include <QtQuick/qquickwindow.h>
-#include <QQuickPaintedItem.h>
+#include <QtQuick/QQuickWindow.h>
+#include <QtQuick/QQuickPaintedItem.h>
 
 #include "qpainter.h"
 #include "qtextstream.h"
