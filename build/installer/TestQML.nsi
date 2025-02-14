@@ -30,8 +30,8 @@ FunctionEnd
 Section
 SetOutPath "$INSTDIR"
 WriteUninstaller "$INSTDIR\Uninstall.exe"
-WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Test."   "DisplayName" "${Name}"
-WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Test."   "UninstallString" "$INSTDIR\Uninstall.exe"
+;WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Test."   "DisplayName" "${Name}"
+;WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Test."   "UninstallString" "$INSTDIR\Uninstall.exe"
 File "TestQML.exe"
 CreateDirectory "$INSTDIR\qml"
 File "qml\OpenFileDialog.qml"
@@ -44,7 +44,7 @@ SectionEnd
 
 Section "Uninstall"
 Delete "$SMPROGRAMS\${Name}.lnk"
-DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Test."
+;DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Test."
 Delete "$INSTDIR\TestQML.exe"
 Delete "$INSTDIR\qml\*.*"
 Delete "$INSTDIR\tets_data\*.*"
